@@ -1,21 +1,21 @@
 <template>
-  <h1>Hello World</h1>
-    <ul>
-        <resource-item v-for="res in storedresources" 
-        :key="res.id"
-        :title="res.title"
-        :description="res.description"
-        :link="res.link"></resource-item>
-    </ul>
+  <the-header :title="title">
+
+  </the-header>
+  <stored-resource
+    :resources="storedresources">
+  </stored-resource>
 </template>
 
 <script>
-import ResourceItem from './components/ResourceItem.vue'
+import StoredResource from './components/StoredResource.vue'
+import TheHeader from './components/TheHeader.vue'
 
 export default {
   name: 'App',
   components: {
-    ResourceItem
+    StoredResource,
+    TheHeader
   },
   data () {
     return {
@@ -32,19 +32,25 @@ export default {
           description: 'a short description for 2nd course',
           link: 'https://google.com'
         }
-            ]
+            ],
+        title:"Just header"
         }
     }
 }
 </script>
 
 <style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+}
 </style>
